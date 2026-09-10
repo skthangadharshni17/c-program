@@ -1,0 +1,38 @@
+#include<stdio.h>
+struct stu_det
+{
+   char name[50];
+   int reg_no,mark1,mark2,mark3,mark4,total;
+   float avg;
+}a[100];
+int main()
+{
+   int i,n;
+   printf("Enter the number of students:");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+   {
+      printf("Enter the name of the student:");
+      scanf("%s",&a[i].name);
+      printf("Enter the reg_no:");
+      scanf("%d",&a[i].reg_no);
+      printf("Enter mark1:");
+      scanf("%d",&a[i].mark1);
+      printf("Enter mark2:");
+      scanf("%d",&a[i].mark2);
+      printf("Enter mark3:");
+      scanf("%d",&a[i].mark3);
+      printf("Enter mark4:");
+      scanf("%d",&a[i].mark4);
+      a[i].total=a[i].mark1+a[i].mark2+a[i].mark3+a[i].mark4;
+      a[i].avg=(float)a[i].total/4.0;
+   }
+   printf("The details with average greater than 50:");
+   for(i=0;i<n;i++)
+   {
+      if(a[i].avg>50)
+      {
+         printf("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%f\n",a[i].name,a[i].reg_no,a[i].mark1,a[i].mark2,a[i].mark3,a[i].mark4,a[i].total,a[i].avg);
+      }
+   }
+}

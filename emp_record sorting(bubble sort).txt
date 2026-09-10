@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct emp_det
+{
+   char emp[10];
+   char add[50];
+   int age;
+}
+*p,temp;
+int main()
+{
+   int n,i,j;
+   printf("Enter the no.of employees:");
+   scanf("%d",&n);
+   p=(struct emp_det*)malloc(n*sizeof(struct emp_det));
+   for(i=0;i<n;i++)
+   {
+      printf("Enter the employee name:");
+      scanf("%s",&p[i].emp);
+      printf("Enter the age:");
+      scanf("%d",&p[i].age);
+      printf("Enter the emp address:");
+      scanf("%s",&p[i].add);
+   }
+      for(i=0;i<n-1;i++)
+      {
+         for(j=0;j<n-i-1;j++)
+         {
+            if(p[j].age>p[j+1].age)
+            {
+               temp=p[j];
+               p[j]=p[j+1];
+               p[j+1]=temp;
+            }
+         }
+      }
+      printf("\nEmployee details sorted by age:");
+      printf("\nEmp_no\tAge\tAddress\n");
+      for(i=0;i<n;i++)
+      {
+        printf("%s\t%d\t%s\n",p[i].emp,p[i].age,p[i].add);
+      }
+         free(p);
+      }

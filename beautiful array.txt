@@ -1,0 +1,20 @@
+#include <stdlib.h>
+void buildBeautiful(int* result, int start, int end, int current_val, int step, int n) {
+    if (current_val > n) {
+        return;
+    }
+    if (start == end) {
+        result[start] = current_val;
+        return;
+    }
+    int total_elements = (end - start) + 1;
+    int odd_count = (total_elements + 1) / 2;
+    buildBeautiful(result, start, start + odd_count - 1, current_val, step * 2, n);
+    buildBeautiful(result, start + odd_count, end, current_val + step, step * 2, n);
+}
+int* beautifulArray(int n, int* returnSize) {
+    int* result = (int*)malloc(n * sizeof(int));
+    *returnSize = n;
+    buildBeautiful(result, 0, n - 1, 1, 1, n);
+    return result;
+}

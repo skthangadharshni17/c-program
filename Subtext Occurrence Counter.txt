@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+   int i,j=0,c=0;
+   char a[50],b[50];
+   printf("Enter the string:");
+   scanf("%s",&a);
+   printf("Enter the substring:");
+   scanf("%s",&b);
+   for(i=0;a[i]!='\0';i++)
+   {
+      if(a[i]==b[i])
+         j++;
+      else if(a[i]==b[0])
+         j=1;
+      else
+         j=0;
+      if(b[j]=='\0')
+      {
+         j=0;
+         c++;
+      }
+   }
+   printf("No of occarances:%d",c);
+}
