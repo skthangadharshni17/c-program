@@ -1,0 +1,17 @@
+#include<stdio.h>
+int desc(int n)
+{
+   if(n<1)
+      return 1;
+   else
+      printf("%d\n",n);
+      return desc(n-1);
+}
+int main()
+{
+   int n,a;
+   printf("Enter the number:");
+   scanf("%d",&n);
+   a=desc(n);
+   return 0;
+}
